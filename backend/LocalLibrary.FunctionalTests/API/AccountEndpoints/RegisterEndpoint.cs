@@ -1,8 +1,5 @@
 ﻿using LocalLibrary.API.Endpoints.Account;
 using LocalLibrary.Core.Constants;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -15,8 +12,6 @@ namespace LocalLibrary.FunctionalTests.API.AccountEndpoints
     [Collection("Sequential")]
     public class RegisterEndpoint : IClassFixture<ApiTestFixture>
     {
-        JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
         public RegisterEndpoint(ApiTestFixture factory)
         {
             Client = factory.CreateClient();
