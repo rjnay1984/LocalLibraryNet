@@ -74,6 +74,8 @@ namespace LocalLibrary.API
             });
 
             services.AddControllers();
+
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Local Library API", Version = "v1" });
