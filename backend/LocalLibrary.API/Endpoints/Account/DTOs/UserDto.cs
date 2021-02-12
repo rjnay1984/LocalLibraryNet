@@ -1,4 +1,4 @@
-namespace LocalLibrary.API.Endpoints.Account
+namespace LocalLibrary.API.Endpoints.Account.DTOs
 {
     public class UserDto
     {

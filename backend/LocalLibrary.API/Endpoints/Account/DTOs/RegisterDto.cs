@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace LocalLibrary.API.Endpoints.Account
+namespace LocalLibrary.API.Endpoints.Account.DTOs
 {
     public class RegisterDto
     {
