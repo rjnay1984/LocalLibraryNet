@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     MaterialModule,
     CoreModule,
     SharedModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

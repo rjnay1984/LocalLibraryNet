@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationComponent } from './navigation/navigation.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+
 import { MaterialModule } from '../shared/material.module';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 
@@ -10,6 +12,7 @@ import { MaterialModule } from '../shared/material.module';
   imports: [
     CommonModule,
     MaterialModule,
+    HttpClientModule
   ],
   exports: [NavigationComponent]
 })
