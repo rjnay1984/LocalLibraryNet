@@ -40,9 +40,15 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
               break;
             case 401:
-              this._snackBar.open(`${error.error}`, null, {
-                duration: 2000
-              })
+              if (error.error.title) {
+                this._snackBar.open('Invalid password.', null, {
+                  duration: 2000
+                })
+              } else {
+                this._snackBar.open(`${error.error}`, null, {
+                  duration: 2000
+                })
+              }
               break;
             case 404:
               // TODO: /not-found
