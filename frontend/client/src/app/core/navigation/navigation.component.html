@@ -1,8 +1,17 @@
 <mat-toolbar>
   <span>Local Library</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon person-icon" aria-label="Example icon-button with person icon">
-    <mat-icon>person</mat-icon>
-  </button>
-  <span>Welcome User!</span>
+  <ng-container *ngIf="(accountService.currentUser$ | async) as user; else register">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+      Welcome {{ user.username }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled>Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </ng-container>
+  <ng-template #register>
+    <button mat-button>Register</button>
+  </ng-template>
 </mat-toolbar>

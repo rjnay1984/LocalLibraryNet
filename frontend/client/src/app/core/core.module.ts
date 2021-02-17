@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { MaterialModule } from '../shared/material.module';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
@@ -18,6 +19,7 @@ import { NavigationComponent } from './navigation/navigation.component';
   exports: [NavigationComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })
 export class CoreModule { }
