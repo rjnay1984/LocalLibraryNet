@@ -1,0 +1,19 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+  <h1>Register</h1>
+  <hr />
+  <mat-form-field appearance="standard">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="registerForm.controls.email.invalid"
+      >This field is required.</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password" />
+    <mat-error *ngIf="registerForm.controls.password.invalid"
+      >This field is required.</mat-error
+    >
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">Register</button>
+</form>

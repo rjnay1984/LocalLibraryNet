@@ -6,24 +6,27 @@ import { AccountService } from 'src/app/core/services/account.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     username: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe(() => {
       this.loginForm.reset();
       this.loginForm.updateValueAndValidity();
+      this.router.navigateByUrl('/');
     });
   }
-
 }

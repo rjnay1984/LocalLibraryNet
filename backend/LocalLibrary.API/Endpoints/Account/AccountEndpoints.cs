@@ -66,6 +66,8 @@ namespace LocalLibrary.API.Endpoints.Account
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
+            await _userManager.AddToRolesAsync(user, registerDto.Roles ?? new[] { "Members" });
+
             if (!result.Succeeded) return BadRequest(result.Errors);
 
             return new UserDto

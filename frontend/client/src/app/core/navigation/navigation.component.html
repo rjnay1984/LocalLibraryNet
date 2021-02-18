@@ -15,10 +15,13 @@
   </ng-container>
   <ng-template #register>
     <mat-nav-list class="navigation">
-      <mat-list-item class="navigation-list" *ngFor="let link of links">
-        <a matLine [routerLink]="['/login']" routerLinkActive="active">{{
-          link
-        }}</a>
+      <mat-list-item class="navigation-list">
+        <a matLine [routerLink]="['/login']" routerLinkActive="active">Login</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-list">
+        <a matLine [routerLink]="['/register']" routerLinkActive="active"
+          >Register</a
+        >
       </mat-list-item>
     </mat-nav-list>
   </ng-template>

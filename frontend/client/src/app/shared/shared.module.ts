@@ -4,11 +4,12 @@ import { CoreModule } from '../core/core.module';
 import { LoginComponent } from './account/login/login.component';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './account/register/register.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     CoreModule,
