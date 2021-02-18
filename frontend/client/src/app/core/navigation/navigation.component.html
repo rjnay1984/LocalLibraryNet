@@ -1,0 +1,28 @@
+<mat-toolbar class="mat-elevation-z2" color="primary">
+  <span>Local Library</span>
+  <span class="example-spacer"></span>
+  <ng-container
+    *ngIf="accountService.currentUser$ | async as user; else register"
+  >
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+      Welcome {{ user.username }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled>Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </ng-container>
+  <ng-template #register>
+    <mat-nav-list class="navigation">
+      <mat-list-item class="navigation-list">
+        <a matLine [routerLink]="['/login']" routerLinkActive="active">Login</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-list">
+        <a matLine [routerLink]="['/register']" routerLinkActive="active"
+          >Register</a
+        >
+      </mat-list-item>
+    </mat-nav-list>
+  </ng-template>
+</mat-toolbar>
