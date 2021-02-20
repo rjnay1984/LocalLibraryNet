@@ -1,4 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/shared/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { NavigationComponent } from './navigation.component';
 
@@ -8,9 +13,9 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule, RouterTestingModule, MaterialModule],
+      declarations: [NavigationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

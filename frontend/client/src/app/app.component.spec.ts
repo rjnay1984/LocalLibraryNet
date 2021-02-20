@@ -1,4 +1,7 @@
+import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -10,11 +13,12 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         CoreModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule,
+        NoopAnimationsModule,
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     }).compileComponents();
   });
 
