@@ -8,12 +8,10 @@ import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +19,7 @@ import { HomeComponent } from './home/home.component';
     CoreModule,
     SharedModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
