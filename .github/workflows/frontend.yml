@@ -32,3 +32,9 @@ jobs:
         working-directory: ${{ env.working_directory }}
       - run: npm run test:ci
         working-directory: ${{ env.working_directory }}
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
