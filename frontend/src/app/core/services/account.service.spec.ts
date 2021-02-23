@@ -37,7 +37,6 @@ describe('AccountService', () => {
       const registerSpy = jest.spyOn(service, 'register');
       const register = service.register(userModel);
 
-      debugger;
       expect(register).toBeInstanceOf(Observable);
       expect(registerSpy).toHaveBeenCalledWith(userModel);
     });
