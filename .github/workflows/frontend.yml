@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: ./frontend
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,15 +31,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-        working-directory: ${{ env.working_directory }}
       - run: npm run build --if-present
-        working-directory: ${{ env.working_directory }}
       - run: npm run test:ci
-        working-directory: ${{ env.working_directory }}
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           headless: true
-        working-directory: ${{ env.working_directory }}
