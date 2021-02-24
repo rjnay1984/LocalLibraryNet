@@ -25,29 +25,29 @@ export class ErrorInterceptor implements HttpInterceptor {
                 const modalStateErrors = [];
                 for (const key in error.error.errors) {
                   if (error.error.errors[key]) {
-                    modalStateErrors.push(error.error.errors[key])
+                    modalStateErrors.push(error.error.errors[key]);
                   }
                 }
                 throw modalStateErrors.flat();
               } else if (typeof (error.error) === 'object') {
                 this._snackBar.open(error.statusText, null, {
                   duration: 2000
-                })
+                });
               } else {
                 this._snackBar.open(`${error.error}, ${error.status}`, null, {
                   duration: 2000
-                })
+                });
               }
               break;
             case 401:
               if (error.error.title) {
                 this._snackBar.open('Invalid password.', null, {
                   duration: 2000
-                })
+                });
               } else {
                 this._snackBar.open(`${error.error}`, null, {
                   duration: 2000
-                })
+                });
               }
               break;
             case 404:
@@ -55,14 +55,14 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/');
               break;
             case 500:
-              const navigationExtras: NavigationExtras = { state: { error: error.error } }
+              const navigationExtras: NavigationExtras = { state: { error: error.error } };
               // TODO: /server-error
               this.router.navigateByUrl('/', navigationExtras);
               break;
             default:
               this._snackBar.open('Something unexpected went wrong', null, {
                 duration: 2000
-              })
+              });
               console.log(error);
               break;
           }
