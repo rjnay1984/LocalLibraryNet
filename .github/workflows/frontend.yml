@@ -38,3 +38,4 @@ jobs:
         with:
           browser: chrome
           headless: true
+        working-directory: ${{ env.working_directory }}
