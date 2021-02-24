@@ -37,6 +37,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          start: npm start
           browser: chrome
           headless: true
           working-directory: ./frontend
