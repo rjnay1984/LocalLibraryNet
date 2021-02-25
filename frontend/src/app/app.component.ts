@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from './core/models/user';
 import { AccountService } from './core/services/account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-
-  constructor(private accountService: AccountService) { }
+export class AppComponent implements OnInit {
+  constructor(private accountService: AccountService) {}
 
   ngOnInit() {
     this.setCurrentUser();

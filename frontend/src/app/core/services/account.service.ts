@@ -12,6 +12,7 @@ import { User } from '../models/user';
 export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new ReplaySubject<User>(1);
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) {}
@@ -46,6 +47,7 @@ export class AccountService {
     const roles = token.role;
     user.username = token.unique_name;
     user.roles = [];
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     Array.isArray(roles) ? (user.roles = roles) : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
