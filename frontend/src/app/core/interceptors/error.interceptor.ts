@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,12 +12,14 @@ import { NavigationExtras, Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
+  constructor(private router: Router, private snackBar: MatSnackBar) {}
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) { }
-
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-      catchError(error => {
+      catchError((error) => {
         if (error) {
           switch (error.status) {
             case 400:
@@ -29,24 +31,24 @@ export class ErrorInterceptor implements HttpInterceptor {
                   }
                 }
                 throw modalStateErrors.flat();
-              } else if (typeof (error.error) === 'object') {
-                this._snackBar.open(error.statusText, null, {
-                  duration: 2000
+              } else if (typeof error.error === 'object') {
+                this.snackBar.open(error.statusText, null, {
+                  duration: 2000,
                 });
               } else {
-                this._snackBar.open(`${error.error}, ${error.status}`, null, {
-                  duration: 2000
+                this.snackBar.open(`${error.error}, ${error.status}`, null, {
+                  duration: 2000,
                 });
               }
               break;
             case 401:
               if (error.error.title) {
-                this._snackBar.open('Invalid password.', null, {
-                  duration: 2000
+                this.snackBar.open('Invalid password.', null, {
+                  duration: 2000,
                 });
               } else {
-                this._snackBar.open(`${error.error}`, null, {
-                  duration: 2000
+                this.snackBar.open(`${error.error}`, null, {
+                  duration: 2000,
                 });
               }
               break;
@@ -55,13 +57,15 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/');
               break;
             case 500:
-              const navigationExtras: NavigationExtras = { state: { error: error.error } };
+              const navigationExtras: NavigationExtras = {
+                state: { error: error.error },
+              };
               // TODO: /server-error
               this.router.navigateByUrl('/', navigationExtras);
               break;
             default:
-              this._snackBar.open('Something unexpected went wrong', null, {
-                duration: 2000
+              this.snackBar.open('Something unexpected went wrong', null, {
+                duration: 2000,
               });
               console.log(error);
               break;

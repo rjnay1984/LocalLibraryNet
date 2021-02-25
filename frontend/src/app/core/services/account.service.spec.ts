@@ -46,6 +46,7 @@ describe('AccountService', () => {
     it('should set the current user on login', () => {
       const user = {
         token:
+          // eslint-disable-next-line max-len
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRlbW91c2VyQG1pY3Jvc29mdC5jb20iLCJyb2xlIjoiTWVtYmVycyIsIm5iZiI6MTYxMzk2NjAzMywiZXhwIjoxNjE0NTcwODMzLCJpYXQiOjE2MTM5NjYwMzN9.eT32LoOdwK2Eelk64mbUdRaw69156Yihwpv_8yLCA7o',
         username: 'user',
         roles: ['role1'],
