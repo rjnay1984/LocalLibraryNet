@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationComponent should show email when currentUser$ 1`] = `
+<app-navigation
+  __ngContext__={[Function LRootView]}
+  accountService={[Function AccountService]}
+  activeLink={[Function String]}
+  background="undefined"
+  links={[Function Array]}
+>
+  <mat-toolbar
+    class="mat-toolbar mat-elevation-z2 mat-primary mat-toolbar-single-row"
+    color="primary"
+  >
+    <span>
+      Local Library
+    </span>
+    <span
+      class="example-spacer"
+    />
+    <button
+      aria-haspopup="true"
+      class="mat-focus-indicator mat-menu-trigger mat-button mat-button-base"
+      mat-button=""
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate material-icons mat-icon-no-color"
+          data-mat-icon-type="font"
+          role="img"
+        >
+          person
+        </mat-icon>
+         Welcome demouser@microsoft.com 
+      </span>
+      <span
+        class="mat-ripple mat-button-ripple"
+        matripple=""
+      />
+      <span
+        class="mat-button-focus-overlay"
+      />
+    </button>
+    
+    <mat-menu>
+      
+    </mat-menu>
+    
+    
+    
+  </mat-toolbar>
+</app-navigation>
+`;
+
+exports[`NavigationComponent should show login/register when no currentUser$ 1`] = `
+<app-navigation
+  __ngContext__={[Function LRootView]}
+  accountService={[Function AccountService]}
+  activeLink={[Function String]}
+  background="undefined"
+  links={[Function Array]}
+>
+  <mat-toolbar
+    class="mat-toolbar mat-elevation-z2 mat-primary mat-toolbar-single-row"
+    color="primary"
+  >
+    <span>
+      Local Library
+    </span>
+    <span
+      class="example-spacer"
+    />
+    <mat-nav-list
+      class="mat-nav-list mat-list-base navigation"
+      role="navigation"
+    >
+      <mat-list-item
+        class="mat-list-item mat-focus-indicator navigation-list"
+      >
+        <div
+          class="mat-list-item-content"
+        >
+          <div
+            class="mat-ripple mat-list-item-ripple"
+            mat-ripple=""
+          />
+          <div
+            class="mat-list-text"
+          >
+            <a
+              class="mat-line"
+              href="/login"
+              matline=""
+              routerlinkactive="active"
+            >
+              Login
+            </a>
+          </div>
+        </div>
+      </mat-list-item>
+      <mat-list-item
+        class="mat-list-item mat-focus-indicator navigation-list"
+      >
+        <div
+          class="mat-list-item-content"
+        >
+          <div
+            class="mat-ripple mat-list-item-ripple"
+            mat-ripple=""
+          />
+          <div
+            class="mat-list-text"
+          >
+            <a
+              class="mat-line"
+              href="/register"
+              matline=""
+              routerlinkactive="active"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+    
+    
+  </mat-toolbar>
+</app-navigation>
+`;
