@@ -2,14 +2,13 @@
 
 exports[`NavigationComponent should show email when currentUser$ 1`] = `
 <app-navigation
-  __ngContext__={[Function LRootView]}
   accountService={[Function AccountService]}
   activeLink={[Function String]}
   background="undefined"
   links={[Function Array]}
 >
   <mat-toolbar
-    class="mat-toolbar mat-elevation-z2 mat-primary mat-toolbar-single-row"
+    class="mat-elevation-z2 mat-toolbar mat-primary mat-toolbar-single-row"
     color="primary"
   >
     <span>
@@ -18,6 +17,8 @@ exports[`NavigationComponent should show email when currentUser$ 1`] = `
     <span
       class="example-spacer"
     />
+    
+    
     <button
       aria-haspopup="true"
       class="mat-focus-indicator mat-menu-trigger mat-button mat-button-base"
@@ -37,19 +38,16 @@ exports[`NavigationComponent should show email when currentUser$ 1`] = `
          Welcome demouser@microsoft.com 
       </span>
       <span
-        class="mat-ripple mat-button-ripple"
+        class="mat-button-ripple mat-ripple"
         matripple=""
       />
       <span
         class="mat-button-focus-overlay"
       />
     </button>
-    
     <mat-menu>
       
     </mat-menu>
-    
-    
     
   </mat-toolbar>
 </app-navigation>
@@ -57,14 +55,13 @@ exports[`NavigationComponent should show email when currentUser$ 1`] = `
 
 exports[`NavigationComponent should show login/register when no currentUser$ 1`] = `
 <app-navigation
-  __ngContext__={[Function LRootView]}
   accountService={[Function AccountService]}
   activeLink={[Function String]}
   background="undefined"
   links={[Function Array]}
 >
   <mat-toolbar
-    class="mat-toolbar mat-elevation-z2 mat-primary mat-toolbar-single-row"
+    class="mat-elevation-z2 mat-toolbar mat-primary mat-toolbar-single-row"
     color="primary"
   >
     <span>
@@ -73,18 +70,19 @@ exports[`NavigationComponent should show login/register when no currentUser$ 1`]
     <span
       class="example-spacer"
     />
+    
     <mat-nav-list
-      class="mat-nav-list mat-list-base navigation"
+      class="navigation mat-nav-list mat-list-base"
       role="navigation"
     >
       <mat-list-item
-        class="mat-list-item mat-focus-indicator navigation-list"
+        class="navigation-list mat-list-item mat-focus-indicator"
       >
         <div
           class="mat-list-item-content"
         >
           <div
-            class="mat-ripple mat-list-item-ripple"
+            class="mat-list-item-ripple mat-ripple"
             mat-ripple=""
           />
           <div
@@ -102,13 +100,13 @@ exports[`NavigationComponent should show login/register when no currentUser$ 1`]
         </div>
       </mat-list-item>
       <mat-list-item
-        class="mat-list-item mat-focus-indicator navigation-list"
+        class="navigation-list mat-list-item mat-focus-indicator"
       >
         <div
           class="mat-list-item-content"
         >
           <div
-            class="mat-ripple mat-list-item-ripple"
+            class="mat-list-item-ripple mat-ripple"
             mat-ripple=""
           />
           <div
@@ -126,7 +124,6 @@ exports[`NavigationComponent should show login/register when no currentUser$ 1`]
         </div>
       </mat-list-item>
     </mat-nav-list>
-    
     
   </mat-toolbar>
 </app-navigation>
