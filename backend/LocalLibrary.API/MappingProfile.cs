@@ -9,6 +9,7 @@ namespace LocalLibrary.API
         public MappingProfile()
         {
             CreateMap<RegisterDto, ApplicationUser>();
+            CreateMap<ApplicationUser, LocalLibrary.API.Endpoints.Users.DTOs.UserDto>();
         }
     }
 }
