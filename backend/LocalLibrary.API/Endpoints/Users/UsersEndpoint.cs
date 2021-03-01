@@ -20,11 +20,11 @@ namespace LocalLibrary.API.Endpoints.Users
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetAllUsers()
+        public async Task<ActionResult<IEnumerable<DetailUserDto>>> GetAllUsers()
         {
             var users = await _userRepository.ListAllUsersAsync();
 
-            var newUsers = _mapper.Map<UserDto[]>(users);
+            var newUsers = _mapper.Map<DetailUserDto[]>(users);
 
             return Ok(newUsers);
         }
