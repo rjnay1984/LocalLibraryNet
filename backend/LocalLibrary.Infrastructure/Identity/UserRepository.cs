@@ -24,9 +24,11 @@ namespace LocalLibrary.Infrastructure.Identity
             throw new System.NotImplementedException();
         }
 
-        public Task<ApplicationUser> GetUserByIdAsync(int id)
+        public async Task<ApplicationUser> GetUserByIdAsync(string id)
         {
-            throw new System.NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+
+            return user;
         }
 
         public async Task<IEnumerable<ApplicationUser>> ListAllUsersAsync()

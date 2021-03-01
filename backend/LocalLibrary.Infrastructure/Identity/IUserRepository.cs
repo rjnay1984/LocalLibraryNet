@@ -6,7 +6,7 @@ namespace LocalLibrary.Infrastructure.Identity
     public interface IUserRepository
     {
         Task<IEnumerable<ApplicationUser>> ListAllUsersAsync();
-        Task<ApplicationUser> GetUserByIdAsync(int id);
+        Task<ApplicationUser> GetUserByIdAsync(string id);
         void AddUserAsync(ApplicationUser user);
         void UpdateUserAsync(ApplicationUser user);
         void DeleteUserAsync(ApplicationUser user);

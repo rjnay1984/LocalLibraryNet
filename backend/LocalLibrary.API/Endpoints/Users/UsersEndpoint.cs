@@ -24,9 +24,25 @@ namespace LocalLibrary.API.Endpoints.Users
         {
             var users = await _userRepository.ListAllUsersAsync();
 
-            var newUsers = _mapper.Map<DetailUserDto[]>(users);
+            _mapper.Map<DetailUserDto[]>(users);
 
-            return Ok(newUsers);
+            return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DetailUserDto>> GetUserById(string id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+
+            var response = new DetailUserDto
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.UserName
+            };
+
+            return response;
         }
     }
 }
