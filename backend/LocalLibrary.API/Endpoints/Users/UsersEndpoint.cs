@@ -1,14 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using LocalLibrary.API.Endpoints.Users.DTOs;
 using LocalLibrary.Infrastructure.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LocalLibrary.API.Endpoints.Users
 {
+    [Authorize(Roles = "Administrators")]
     public class Users : BaseEndpoint
     {
         private readonly IUserRepository _userRepository;
