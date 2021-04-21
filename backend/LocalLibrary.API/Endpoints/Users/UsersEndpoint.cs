@@ -24,9 +24,7 @@ namespace LocalLibrary.API.Endpoints.Users
         {
             var users = await _userRepository.ListAllUsersAsync();
 
-            _mapper.Map<DetailUserDto[]>(users);
-
-            return Ok(users);
+            return Ok(_mapper.Map<DetailUserDto[]>(users));
         }
 
         [HttpGet("{id}")]
@@ -43,6 +41,22 @@ namespace LocalLibrary.API.Endpoints.Users
             };
 
             return response;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddUser(NewUserDto user)
+        {
+            var newUser = _mapper.Map<ApplicationUser>(user);
+            newUser.Email = user.Email.ToLower();
+            newUser.UserName = user.Email.ToLower();
+
+            var result = await _userRepository.AddUserAsync(newUser, user.Roles);
+
+            if (!result.Succeeded) return BadRequest(result.Errors);
+
+            await _userRepository.AddUserToRolesAsync(newUser, user.Roles);
+
+            return Ok("User created: " + user.Email);
         }
     }
 }

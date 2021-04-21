@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using LocalLibrary.API.Endpoints.Users.DTOs;
@@ -51,6 +52,23 @@ namespace LocalLibrary.FunctionalTests.API.UserEndpoints
         {
             var response = await Client.GetAsync("api/users");
             Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task AddsAUserReturnsOkWithAdminUser()
+        {
+            var adminToken = ApiTokenHelper.GetAdminUserToken();
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", adminToken);
+
+            var request = new NewUserDto
+            {
+                Email = "new.user@email.com"
+            };
+            var jsonContent = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
+
+
+            var response = await Client.PostAsync("api/users", jsonContent);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
     }
 }

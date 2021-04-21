@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using LocalLibrary.Core.Constants;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LocalLibrary.Infrastructure.Identity
 {
@@ -14,9 +14,18 @@ namespace LocalLibrary.Infrastructure.Identity
             _userManager = userManager;
         }
 
-        public void AddUserAsync(ApplicationUser user)
+        public async Task<IdentityResult> AddUserAsync(ApplicationUser user, string[] roles)
         {
-            throw new System.NotImplementedException();
+            var result = await _userManager.CreateAsync(user, AuthorizationConstants.DEFAULT_PASSWORD);
+
+            return result;
+        }
+
+        public async Task<IdentityResult> AddUserToRolesAsync(ApplicationUser user, string[] roles)
+        {
+            var result = await _userManager.AddToRolesAsync(user, roles ?? new[] { "Members" });
+
+            return result;
         }
 
         public void DeleteUserAsync(ApplicationUser user)

@@ -11,6 +11,7 @@ namespace LocalLibrary.API
         {
             CreateMap<RegisterDto, ApplicationUser>();
             CreateMap<ApplicationUser, DetailUserDto>();
+            CreateMap<NewUserDto, ApplicationUser>();
         }
     }
 }
