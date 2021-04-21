@@ -34,7 +34,7 @@ namespace LocalLibrary.FunctionalTests.API.UserEndpoints
             var stringResponse = await response.Content.ReadAsStringAsync();
             var model = stringResponse.FromJson<DetailUserDto[]>();
 
-            Assert.Equal(2, model.Length);
+            Assert.Equal(3, model.Length);
         }
 
         [Fact]
